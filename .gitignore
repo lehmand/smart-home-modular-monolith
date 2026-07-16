@@ -55,3 +55,8 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+mqtt_config
+mqtt_data
+mqtt_log
+postgres_data

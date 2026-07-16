@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    container_name: postgres
+
+  mqtt:
+    image: eclipse-mosquitto:2.0
+    restart: unless-stopped
+    container_name: mosquitto
