@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SmartHome.Shared/SmartHome.Shared.csproj" />
+    <Project Path="src/SmartHome.WebApi/SmartHome.WebApi.csproj" />
+  </Folder>
+</Solution>

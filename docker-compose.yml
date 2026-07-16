@@ -1,0 +1,7 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    container-name: postgres
+    environment:
+        
