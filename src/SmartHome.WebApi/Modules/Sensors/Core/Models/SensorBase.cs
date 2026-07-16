@@ -4,4 +4,12 @@ public abstract class SensorBase
 {
     Guid Id { get; set; }
     string Room { get; set; } = string.Empty;
+    SensorType Type { get; set; }
+}
+
+enum SensorType
+{
+    Temperature,
+    Presence,
+    Humidity
 }
