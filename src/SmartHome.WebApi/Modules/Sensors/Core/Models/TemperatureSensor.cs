@@ -2,5 +2,5 @@ namespace SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 public class TemperatureSensor : SensorBase
 {
-    decimal Temperature { get; set; }
+    public decimal Temperature { get; set; }
 }

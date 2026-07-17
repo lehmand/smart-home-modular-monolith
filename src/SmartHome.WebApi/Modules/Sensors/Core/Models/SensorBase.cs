@@ -7,7 +7,7 @@ public abstract class SensorBase
     SensorType Type { get; set; }
 }
 
-enum SensorType
+public enum SensorType
 {
     Temperature,
     Presence,
