@@ -12,4 +12,15 @@ public class SensorRepository : ISensorsRepository
     {
         _context = context;
     }
+
+    public async Task<TemperatureSensorDto>CreateTemperatureSensorAsync(TemperatureSensor tempSensor)
+    {
+        _context.TemperatureSensors.Add(tempSensor);
+        await _context.SaveChangesAsync();
+
+        return new TemperatureSensorDto
+        {
+            
+        };
+    }
 }

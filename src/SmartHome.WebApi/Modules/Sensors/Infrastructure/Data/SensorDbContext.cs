@@ -3,9 +3,10 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Infrastructure.Data;
 
+
 public class SensorDbContext(DbContextOptions<SensorDbContext> options) : DbContext(options)
 {
-    public DbSet<SensorBase> Sensors { get; set; }
+    public DbSet<TemperatureSensor> TemperatureSensors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

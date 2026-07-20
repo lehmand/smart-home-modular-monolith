@@ -12,8 +12,9 @@ public static class DependencyInjection
         IConfiguration configuration
     )
     {
-        services.AddDbContextPool<SensorDbContext>(opt =>
-        opt.UseNpgsql(configuration.GetConnectionString("SensorContext")));
+        services.AddDbContext<SensorDbContext>(opt =>
+            opt.UseNpgsql(configuration.GetConnectionString("SensorContext")));
+
         services.AddScoped<ISensorsRepository, SensorRepository>();
 
         return services;

@@ -8,3 +8,8 @@ public class SensorDto
     public string Room { get; set; } = string.Empty;
     public SensorType Type { get; set; }
 }
+
+public class TemperatureSensorDto : SensorDto
+{
+    public decimal Temperature { get; set; }
+}
