@@ -20,7 +20,10 @@ public class SensorRepository : ISensorsRepository
 
         return new TemperatureSensorDto
         {
-            
+            Id = tempSensor.Id,
+            Room = tempSensor.Room,
+            Type = tempSensor.Type,
+            Temperature = tempSensor.Temperature
         };
     }
 }
