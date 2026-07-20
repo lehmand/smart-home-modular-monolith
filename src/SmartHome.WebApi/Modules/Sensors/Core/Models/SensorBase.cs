@@ -1,10 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 public abstract class SensorBase
 {
-    Guid Id { get; set; }
-    string Room { get; set; } = string.Empty;
-    SensorType Type { get; set; }
+    public Guid Id { get; set; }
+    public string Room { get; set; } = string.Empty;
+    public SensorType Type { get; set; }
 }
 
 public enum SensorType
