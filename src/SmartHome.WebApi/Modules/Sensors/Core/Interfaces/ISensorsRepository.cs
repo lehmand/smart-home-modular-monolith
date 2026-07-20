@@ -1,9 +1,6 @@
-using SmartHome.WebApi.Modules.Sensors.Core.DTOs;
-using SmartHome.WebApi.Modules.Sensors.Core.Models;
-
 namespace SmartHome.WebApi.Modules.Sensors.Core.Interfaces;
 
-public interface ISensorsRepository
+public interface ISensorsRepository<TEntity> where TEntity : class
 {
-    Task<TemperatureSensorDto>CreateTemperatureSensorAsync(TemperatureSensor tempSensor);
+  Task CreateAsync(TEntity entity, CancellationToken cancellationToken);
 }
