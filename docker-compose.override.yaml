@@ -20,6 +20,6 @@ services:
 
 volumes:
   postgres_data:
-  mqtt_config: 
+  mqtt_config:
   mqtt_data:
   mqtt_log:
