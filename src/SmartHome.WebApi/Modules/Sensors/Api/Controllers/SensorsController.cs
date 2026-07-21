@@ -1,10 +1,8 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using SmartHome.WebApi.Modules.Sensors.Core.DTOs;
 using SmartHome.WebApi.Modules.Sensors.Core.Interfaces;
 using SmartHome.WebApi.Modules.Sensors.Core.Models;
-using SmartHome.WebApi.Modules.Sensors.Infrastructure.Data.Repositories;
 
 namespace SmartHome.WebApi.Modules.Sensors.Api.Controllers;
 
@@ -25,7 +23,7 @@ public class SensorsController : ControllerBase
     public async Task<ActionResult<TemperatureSensorDto>> CreateTemperatureSensor([FromBody] TemperatureSensorDto tempSensorDto, CancellationToken cancellationToken)
     {
        var entity = _mapper.Map<TemperatureSensor>(tempSensorDto);
-       var createdDto = _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
+       var createdDto = await _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
 
        return CreatedAtAction(
         nameof(CreateTemperatureSensor),
