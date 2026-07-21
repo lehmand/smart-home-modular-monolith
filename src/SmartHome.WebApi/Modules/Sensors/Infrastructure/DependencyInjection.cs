@@ -29,7 +29,6 @@ public static class DependencyInjection
 
     services.AddAutoMapper(cfg =>
     {
-
     }, typeof(SensorMappingProfile));
 
     return services;
