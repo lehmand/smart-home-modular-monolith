@@ -8,6 +8,7 @@ public class SensorMappingProfile : Profile
 {
     public SensorMappingProfile()
     {
-        CreateMap<TemperatureSensor, TemperatureSensorDto>().ReverseMap();
+        CreateMap<TemperatureSensor, TemperatureSensorDetailsDto>().ReverseMap();
+        CreateMap<TemperatureSensor, TemperatureSensorCreateDto>().ReverseMap();
     }   
 }

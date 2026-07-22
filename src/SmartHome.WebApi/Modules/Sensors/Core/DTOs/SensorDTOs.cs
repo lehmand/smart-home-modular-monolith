@@ -2,14 +2,17 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Core.DTOs;
 
-public class SensorDto
+public class TemperatureSensorCreateDto
 {
-  public Guid Id { get; set; }
-  public string Room { get; set; } = string.Empty;
-  public SensorType Type { get; set; }
+  public required string Room { get; set; } = string.Empty;
+  public required SensorType Type { get; set; }
+  public decimal? Temperature { get; set; }
 }
 
-public class TemperatureSensorDto : SensorDto
+public class TemperatureSensorDetailsDto
 {
-  public decimal Temperature { get; set; }
+  public Guid Id { get; set; }
+  public required string Room { get; set; } 
+  public required SensorType Type { get; set; }
+  public decimal? Temperature { get; set; }
 }

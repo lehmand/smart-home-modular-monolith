@@ -20,8 +20,8 @@ public static class DependencyInjection
         opt.UseNpgsql(configuration.GetConnectionString("SensorContext")));
 
     services.AddScoped<
-        ISensorsRepository<TemperatureSensor, TemperatureSensorDto>,
-        SensorsRepository<TemperatureSensor, TemperatureSensorDto>
+        ISensorsRepository<TemperatureSensor>,
+        SensorsRepository<TemperatureSensor>
     >();
 
     services.AddControllers()
