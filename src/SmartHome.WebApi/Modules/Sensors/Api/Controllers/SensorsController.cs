@@ -36,10 +36,25 @@ public class SensorsController : ControllerBase
   public async Task<ActionResult<TemperatureSensorDetailsDto>> GetTemperatureSensorById(Guid id, CancellationToken cancellationToken)
   {
     var entity = await _temperatureSensorRepository.GetByIdAsync(id, cancellationToken);
-    if(entity ==  null)
+    if (entity == null)
     {
       return NotFound();
     }
+    return Ok(_mapper.Map<TemperatureSensorDetailsDto>(entity));
+  }
+
+  [HttpPut("temperature/{id}")]
+  public async Task<ActionResult<TemperatureSensorDetailsDto>> UpdateTemperatureSensor(Guid id, TemperatureSensorDetailsDto updatedSensor, CancellationToken cancellationToken)
+  {
+    var entity = await _temperatureSensorRepository.GetByIdAsync(id, cancellationToken);
+    if (entity == null)
+    {
+      return NotFound();
+    }
+
+    _mapper.Map(updatedSensor, entity);
+
+    await _temperatureSensorRepository.UpdateAsync(entity, cancellationToken);
     return Ok(_mapper.Map<TemperatureSensorDetailsDto>(entity));
   }
 }
