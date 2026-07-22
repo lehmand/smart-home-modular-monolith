@@ -23,12 +23,23 @@ public class SensorsController : ControllerBase
   public async Task<ActionResult<TemperatureSensorDto>> CreateTemperatureSensor([FromBody] TemperatureSensorDto tempSensorDto, CancellationToken cancellationToken)
   {
     var entity = _mapper.Map<TemperatureSensor>(tempSensorDto);
-    var createdDto = await _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
+    var createdEntity = await _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
 
     return CreatedAtAction(
-     nameof(CreateTemperatureSensor),
-     new { id = createdDto.Id },
-     createdDto
+     nameof(GetTemperatureSensorById),
+     new { id = createdEntity.Id },
+     _mapper.Map<TemperatureSensorDto>(createdEntity)
     );
+  }
+
+  [HttpGet("temperature/{Id}")]
+  public async Task<ActionResult<TemperatureSensorDto>> GetTemperatureSensorById(Guid Id, CancellationToken cancellationToken)
+  {
+    var entity = await _temperatureSensorRepository.GetByIdAsync(Id, cancellationToken);
+    if(entity ==  null)
+    {
+      return NotFound();
+    }
+    return Ok(_mapper.Map<TemperatureSensorDto>(entity));
   }
 }
