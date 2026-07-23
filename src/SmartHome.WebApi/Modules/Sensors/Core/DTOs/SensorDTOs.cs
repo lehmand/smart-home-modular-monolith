@@ -3,7 +3,7 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Core.DTOs;
 
-public class TemperatureSensorCreateDto
+public class TemperatureSensorDto
 {
   [Required]
   public string Room { get; set; } = string.Empty;

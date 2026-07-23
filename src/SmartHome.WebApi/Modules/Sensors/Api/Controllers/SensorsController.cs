@@ -20,7 +20,7 @@ public class SensorsController : ControllerBase
   }
 
   [HttpPost("temperature")]
-  public async Task<ActionResult<TemperatureSensorDetailsDto>> CreateTemperatureSensor([FromBody] TemperatureSensorCreateDto tempSensorDto, CancellationToken cancellationToken)
+  public async Task<ActionResult<TemperatureSensorDetailsDto>> CreateTemperatureSensor([FromBody] TemperatureSensorDto tempSensorDto, CancellationToken cancellationToken)
   {
     var entity = _mapper.Map<TemperatureSensor>(tempSensorDto);
     var createdEntity = await _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
