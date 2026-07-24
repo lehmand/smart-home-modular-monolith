@@ -6,12 +6,12 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Application.Services;
 
-public class SensorService<TDto> : ISensorService<TDto>
+public class TemperatureSensorService<TemperatureSensorDetailsDto> : ITemperatureService<TemperatureSensorDto, TemperatureSensorDetailsDto>
 {
     private readonly ISensorRepository<TemperatureSensor> _repository;
     private readonly IMapper _mapper;
 
-    public SensorService(ISensorRepository<TemperatureSensor> repository, IMapper mapper)
+    public TemperatureSensorService(ISensorRepository<TemperatureSensor> repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
@@ -41,5 +41,10 @@ public class SensorService<TDto> : ISensorService<TDto>
        _mapper.Map(dto, entity);
        var updated = await _repository.UpdateAsync(entity, cancellationToken);
        return _mapper.Map<TemperatureSensorDetailsDto>(updated);
+    }
+
+    public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken)
+    {
+        return await _repository.DeleteAsync(id, cancellationToken);
     }
 }
