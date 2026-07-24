@@ -24,9 +24,6 @@ public static class DependencyInjection
         SensorsRepository<TemperatureSensor>
     >();
 
-    services.AddControllers()
-      .AddApplicationPart(typeof(SensorsController).Assembly);
-
     services.AddAutoMapper(cfg =>
     {
     }, typeof(SensorMappingProfile));

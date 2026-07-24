@@ -3,9 +3,7 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Core.Interfaces;
 
-public interface ISensorsRepository<TEntity> where TEntity : Sensor
+public interface ISensorsRepository<TEntity> : IRepository<TEntity> where TEntity : Sensor
 {
-  Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken);
-  Task<TEntity?> GetByIdAsync(Guid Id, CancellationToken cancellationToken);
-  Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken);
+
 }

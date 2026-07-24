@@ -23,7 +23,7 @@ public class SensorsController : ControllerBase
   public async Task<ActionResult<TemperatureSensorDetailsDto>> CreateTemperatureSensor([FromBody] TemperatureSensorDto tempSensorDto, CancellationToken cancellationToken)
   {
     var entity = _mapper.Map<TemperatureSensor>(tempSensorDto);
-    var createdEntity = await _temperatureSensorRepository.CreateAsync(entity, cancellationToken);
+    var createdEntity = await _temperatureSensorRepository.AddAsync(entity, cancellationToken);
 
     return CreatedAtAction(
      nameof(GetTemperatureSensorById),
