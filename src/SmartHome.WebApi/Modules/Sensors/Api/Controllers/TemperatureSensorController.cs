@@ -10,12 +10,12 @@ namespace SmartHome.WebApi.Modules.Sensors.Api.Controllers;
 [Route("api/[controller]")]
 public class SensorsController : ControllerBase
 {
-  private readonly ISensorRepository<TemperatureSensor> _temperatureSensorRepository;
+  private readonly ITemperatureSensorService _service;
   private readonly IMapper _mapper;
 
-  public SensorsController(ISensorRepository<TemperatureSensor> temperatureSensorRepository, IMapper mapper)
+  public SensorsController(ITemperatureSensorService service, IMapper mapper)
   {
-    _temperatureSensorRepository = temperatureSensorRepository;
+    _service = service;
     _mapper = mapper;
   }
 
@@ -23,13 +23,6 @@ public class SensorsController : ControllerBase
   public async Task<ActionResult<TemperatureSensorDetailsDto>> CreateTemperatureSensor([FromBody] TemperatureSensorDto tempSensorDto, CancellationToken cancellationToken)
   {
     var entity = _mapper.Map<TemperatureSensor>(tempSensorDto);
-    var createdEntity = await _temperatureSensorRepository.AddAsync(entity, cancellationToken);
-
-    return CreatedAtAction(
-     nameof(GetTemperatureSensorById),
-     new { id = createdEntity.Id },
-     _mapper.Map<TemperatureSensorDetailsDto>(createdEntity)
-    );
   }
 
   [HttpGet("temperature/{id}")]

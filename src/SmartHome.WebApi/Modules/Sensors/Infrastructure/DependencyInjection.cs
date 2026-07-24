@@ -27,7 +27,7 @@ public static class DependencyInjection
     >();
 
     services.AddScoped<
-      ITemperatureService<TemperatureSensorDto, TemperatureSensorDetailsDto>,
+      ITemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto>,
       TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto>
     >();
 

@@ -6,7 +6,7 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Application.Services;
 
-public class TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto> : ITemperatureService<TemperatureSensorDto, TemperatureSensorDetailsDto>
+public class TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto> : ITemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto>
 {
     private readonly ISensorRepository<TemperatureSensor> _repository;
     private readonly IMapper _mapper;
