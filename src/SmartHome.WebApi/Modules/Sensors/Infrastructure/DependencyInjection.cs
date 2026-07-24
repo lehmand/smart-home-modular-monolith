@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SmartHome.WebApi.Modules.Sensors.Api.Controllers;
+using SmartHome.WebApi.Modules.Sensors.Application.Interfaces;
+using SmartHome.WebApi.Modules.Sensors.Application.Services;
 using SmartHome.WebApi.Modules.Sensors.Core.DTOs;
 using SmartHome.WebApi.Modules.Sensors.Core.Interfaces;
 using SmartHome.WebApi.Modules.Sensors.Core.Models;
@@ -20,8 +22,13 @@ public static class DependencyInjection
         opt.UseNpgsql(configuration.GetConnectionString("SensorContext")));
 
     services.AddScoped<
-        ISensorsRepository<TemperatureSensor>,
-        SensorsRepository<TemperatureSensor>
+        ISensorRepository<TemperatureSensor>,
+        SensorRepository<TemperatureSensor>
+    >();
+
+    services.AddScoped<
+      ISensorService<TemperatureSensor>,
+      SensorService<TemperatureSensor>
     >();
 
     services.AddAutoMapper(cfg =>
