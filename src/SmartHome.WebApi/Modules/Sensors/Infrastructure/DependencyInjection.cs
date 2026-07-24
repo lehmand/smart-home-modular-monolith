@@ -28,7 +28,7 @@ public static class DependencyInjection
 
     services.AddScoped<
       ITemperatureService<TemperatureSensorDto, TemperatureSensorDetailsDto>,
-      TemperatureSensorService<TemperatureSensorDto>
+      TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDetailsDto>
     >();
 
     services.AddAutoMapper(cfg =>
