@@ -10,7 +10,7 @@ public class SensorDbContext(DbContextOptions<SensorDbContext> options) : DbCont
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<SensorBase>()
+        modelBuilder.Entity<Sensor>()
             .HasDiscriminator<SensorType>("Type")
             .HasValue<TemperatureSensor>(SensorType.Temperature);
     }

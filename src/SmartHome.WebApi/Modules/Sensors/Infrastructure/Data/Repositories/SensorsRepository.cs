@@ -4,7 +4,7 @@ using SmartHome.WebApi.Modules.Sensors.Core.Models;
 
 namespace SmartHome.WebApi.Modules.Sensors.Infrastructure.Data.Repositories;
 
-public class SensorsRepository<TEntity> : ISensorsRepository<TEntity> where TEntity : SensorBase
+public class SensorsRepository<TEntity> : ISensorsRepository<TEntity> where TEntity : Sensor
 {
   private readonly SensorDbContext _context;
 
