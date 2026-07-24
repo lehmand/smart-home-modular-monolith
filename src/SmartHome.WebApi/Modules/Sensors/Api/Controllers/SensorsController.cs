@@ -10,10 +10,10 @@ namespace SmartHome.WebApi.Modules.Sensors.Api.Controllers;
 [Route("api/[controller]")]
 public class SensorsController : ControllerBase
 {
-  private readonly ISensorsRepository<TemperatureSensor> _temperatureSensorRepository;
+  private readonly ISensorRepository<TemperatureSensor> _temperatureSensorRepository;
   private readonly IMapper _mapper;
 
-  public SensorsController(ISensorsRepository<TemperatureSensor> temperatureSensorRepository, IMapper mapper)
+  public SensorsController(ISensorRepository<TemperatureSensor> temperatureSensorRepository, IMapper mapper)
   {
     _temperatureSensorRepository = temperatureSensorRepository;
     _mapper = mapper;
