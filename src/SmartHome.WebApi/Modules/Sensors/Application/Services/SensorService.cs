@@ -42,9 +42,4 @@ public class SensorService<TDto> : ISensorService<TDto>
        var updated = await _repository.UpdateAsync(entity, cancellationToken);
        return _mapper.Map<TemperatureSensorDetailsDto>(updated);
     }
-
-    public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken)
-    {
-        return await _repository.DeleteAsync(id, cancellationToken);
-    }
 }

@@ -1,10 +1,10 @@
 namespace SmartHome.WebApi.Modules.Sensors.Application.Interfaces;
 
-public interface IService<TDto>
+public interface IService<TCreateDto, TDetailDto>
 {
-    Task<TDto> AddAsync(TDto dto, CancellationToken cancellationToken);
-    Task<TDto?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
-    Task<TDto?> UpdateAsync(Guid id, TDto dto, CancellationToken cancellationToken);
+    Task<TDetailDto> AddAsync (TCreateDto dto, CancellationToken cancellationToken);
+    Task<TDetailDto?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+    Task<TDetailDto?> UpdateAsync(Guid id, TDetailDto dto, CancellationToken cancellationToken);
     Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken);
 
 }
