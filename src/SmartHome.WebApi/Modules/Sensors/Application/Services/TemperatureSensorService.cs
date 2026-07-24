@@ -27,7 +27,7 @@ public class TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDet
     public async Task<TemperatureSensorDetailsDto?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         var entity = await _repository.GetByIdAsync(id, cancellationToken);
-        return entity is null ? null : _mapper.Map<TemperatureSensorDetailsDto>(entity);
+        return entity is null ? default(TemperatureSensorDetailsDto) : _mapper.Map<TemperatureSensorDetailsDto>(entity);
     }
 
     public async Task<TemperatureSensorDetailsDto?> UpdateAsync(Guid id, TemperatureSensorDetailsDto dto, CancellationToken cancellationToken)
@@ -35,7 +35,7 @@ public class TemperatureSensorService<TemperatureSensorDto, TemperatureSensorDet
        var entity = await _repository.GetByIdAsync(id, cancellationToken);
        if(entity ==  null)
         {
-            return null;
+            return default(TemperatureSensorDetailsDto);
         }
 
        _mapper.Map(dto, entity);
